@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'lato';
+    /* src: url('./image/Lato/Lato-Black.ttf');
+    src: url('./image/Lato/Lato-BlackItalic.ttf');
+    src: url('./image/Lato/Lato-Bold.ttf');
+    src: url('./image/Lato/Lato-BoldItalic.ttf');
+    src: url('./image/Lato/Lato-Italic.ttf');
+    src: url('./image/Lato/Lato-LightItalic.ttf');
+    src: url('./image/Lato/Lato-Regular.ttf');
+    src: url('./image/Lato/Lato-Thin.ttf');
+    src: url('./image/Lato/Lato-ThinItalic.ttf'); */
+    src: url('./image/Lato/Lato-Light.ttf');
+}
+
+:root {
+    --ion-font-family: 'lato';
+}
+
+body {
+    letter-spacing: 1px;
+}
+

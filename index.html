@@ -1,15 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeu de dés</title>
+    <link rel="stylesheet" href="./style.css" />
     <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
     <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
 </head>
+
 <body>
+    <ion-app>
+        <h1 style="display: none;">dice game</h1>
+        <ion-grid class="ion-text-center" fixed="true">
+            <ion-row class="ion-justify-content-center">
+                <ion-col>
+                    <ion-button fill="clear" color="dark" expand="full" size="large">
+                        <ion-icon slot="start" name="add-circle-outline" color="danger"></ion-icon>
+                        <ion-text class="ion-text-uppercase">new game</ion-text>
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <h2 class="ion-text-uppercase">
+                        Player 1
+                    </h2>
+                    <p id="player1-dice">
+                        <ion-text color="danger">40</ion-text>
+                    </p>
+                </ion-col>
+                <ion-col>
+                    <ion-button fill="clear" color="dark" expand="full" size="large">
+                        <ion-icon name="grid-outline" color="danger"></ion-icon>
+                    </ion-button>
+                </ion-col>
+                <ion-col>
+                    <h2 class="ion-text-uppercase">
+                        Player 2
+                    </h2>
+                    <p id="player2-dice">
+                        <ion-text color="danger">35</ion-text>
+                    </p>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <div>
+                        <ion-text class="ion-text-uppercase">current</ion-text>
+                        <p>
+                            <ion-text id="current-player1-score">72</ion-text>
+                        </p>
+                    </div>
+                </ion-col>
+                <ion-col>
+                    <div>
+                        <ion-button fill="clear" color="dark" expand="full" size="large">
+                            <ion-icon slot="start" name="sync-outline" color="danger"></ion-icon>
+                            <ion-text class="ion-text-uppercase">roll dice</ion-text>
+                        </ion-button>
+                        <ion-button fill="clear" color="dark" expand="full" size="large">
+                            <ion-icon slot="start" name="download-outline" color="danger"></ion-icon>
+                            <ion-text class="ion-text-uppercase">hold</ion-text>
+                        </ion-button>
+                    </div>
+                </ion-col>
+                <ion-col>
+                    <div>
+                        <ion-text class="ion-text-uppercase">current</ion-text>
+                        <p>
+                            <ion-text>53</ion-text>
+                        </p>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-app>
     <script src='./script.js'></script>
 </body>
+
 </html>
