@@ -11,72 +11,75 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
 </head>
 
-<body>
+<body class="game-background">
     <ion-app>
-        <h1 style="display: none;">dice game</h1>
-        <ion-grid class="ion-text-center" fixed="true">
-            <ion-row class="ion-justify-content-center">
-                <ion-col>
-                    <ion-button fill="clear" color="dark" expand="full" size="large">
+        <h1 class="ion-hide">dice game</h1>
+        <ion-grid class="ion-text-center"  style="height: 100%; background-color: white; margin: 120px auto; padding: 0 120px; box-shadow: 0 4px 10px rgb(105, 85, 73); border-radius: 2px;" fixed="true">
+            <ion-row class="small-row-height">
+                <ion-col class="ion-align-self-center" size="12">
+                    <ion-button class="button-font-size" fill="clear" color="dark" expand="full" size="large">
                         <ion-icon slot="start" name="add-circle-outline" color="danger"></ion-icon>
-                        <ion-text class="ion-text-uppercase">new game</ion-text>
+                        <ion-text class="ion-text-uppercase" >new game</ion-text>
                     </ion-button>
                 </ion-col>
             </ion-row>
-            <ion-row>
-                <ion-col>
-                    <h2 class="ion-text-uppercase">
+            <ion-row class="large-row-height">
+                <ion-col size="4">
+                    <h2 class="ion-text-uppercase" style="font-size: 50px;">
                         Player 1
                     </h2>
                     <p id="player1-dice">
-                        <ion-text color="danger">40</ion-text>
+                        <ion-text color="danger" class="round-score">43</ion-text>
                     </p>
                 </ion-col>
-                <ion-col>
-                    <ion-button fill="clear" color="dark" expand="full" size="large">
-                        <ion-icon name="grid-outline" color="danger"></ion-icon>
-                    </ion-button>
+                <ion-col size="4">
+                        <div id="dice"></div>
                 </ion-col>
-                <ion-col>
-                    <h2 class="ion-text-uppercase">
+                <ion-col size="4">
+                    <h2 class="ion-text-uppercase" style="font-size: 50px;">
                         Player 2
                     </h2>
                     <p id="player2-dice">
-                        <ion-text color="danger">35</ion-text>
+                        <ion-text color="danger" class="round-score">72</ion-text>
                     </p>
                 </ion-col>
             </ion-row>
-            <ion-row>
-                <ion-col>
-                    <div>
-                        <ion-text class="ion-text-uppercase">current</ion-text>
-                        <p>
-                            <ion-text id="current-player1-score">72</ion-text>
+            <ion-row class="medium-row-height">
+                <ion-col size="4">
+                    <div class="ion-padding-vertical global-score-background">
+                        <p class="ion-no-margin ion-margin-bottom">
+                            <ion-text class="ion-text-uppercase">current</ion-text>
+                        </p>
+                        <p class="ion-no-margin">
+                            <ion-text color="light" class="global-score">11</ion-text>
                         </p>
                     </div>
                 </ion-col>
-                <ion-col>
+                <ion-col size="4" class="aion-align-self-end">
                     <div>
-                        <ion-button fill="clear" color="dark" expand="full" size="large">
+                        <ion-button class="button-font-size roll-dice-margin" fill="clear" color="dark" expand="full" size="medium">
                             <ion-icon slot="start" name="sync-outline" color="danger"></ion-icon>
                             <ion-text class="ion-text-uppercase">roll dice</ion-text>
                         </ion-button>
-                        <ion-button fill="clear" color="dark" expand="full" size="large">
+                        <ion-button class="button-font-size hold-dice-margin" fill="clear" color="dark" expand="full" size="medium">
                             <ion-icon slot="start" name="download-outline" color="danger"></ion-icon>
                             <ion-text class="ion-text-uppercase">hold</ion-text>
                         </ion-button>
                     </div>
                 </ion-col>
-                <ion-col>
-                    <div>
-                        <ion-text class="ion-text-uppercase">current</ion-text>
-                        <p>
-                            <ion-text>53</ion-text>
+                <ion-col size="4">
+                    <div class="ion-padding-vertical global-score-background">
+                        <p class="ion-no-margin ion-margin-bottom">
+                            <ion-text class="ion-text-uppercase">current</ion-text>
+                        </p>
+                        <p class="ion-no-margin">
+                            <ion-text color="light" class="global-score">0</ion-text>
                         </p>
                     </div>
                 </ion-col>
             </ion-row>
         </ion-grid>
+        
     </ion-app>
     <script src='./script.js'></script>
 </body>

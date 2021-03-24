@@ -1,22 +1,79 @@
+/* Font/Font-size - START */
 @font-face {
-    font-family: 'lato';
-    /* src: url('./image/Lato/Lato-Black.ttf');
-    src: url('./image/Lato/Lato-BlackItalic.ttf');
-    src: url('./image/Lato/Lato-Bold.ttf');
-    src: url('./image/Lato/Lato-BoldItalic.ttf');
-    src: url('./image/Lato/Lato-Italic.ttf');
-    src: url('./image/Lato/Lato-LightItalic.ttf');
-    src: url('./image/Lato/Lato-Regular.ttf');
-    src: url('./image/Lato/Lato-Thin.ttf');
-    src: url('./image/Lato/Lato-ThinItalic.ttf'); */
+    font-family: 'lato-light';
     src: url('./image/Lato/Lato-Light.ttf');
 }
 
-:root {
-    --ion-font-family: 'lato';
+@font-face {
+    font-family: 'lato-thin';
+    src: url('./image/Lato/Lato-Thin.ttf');
 }
 
-body {
-    letter-spacing: 1px;
+@font-face {
+    font-family: 'lato-regular';
+    src: url('./image/Lato/Lato-Regular.ttf');
 }
+
+:root {
+    --ion-font-family: 'lato-light';
+}
+
+.round-score {
+    font-family: 'lato-thin';
+    font-size: 100px;
+}
+
+.global-score {
+    font-size: 35px;
+}
+
+.button-font-size {
+    font-size: 25px
+}
+/* Font/Font-size - END */
+
+/* Taille des rows - START */
+.small-row-height {
+    height: 20%;
+}
+
+.medium-row-height {
+    height: 35%;
+}
+
+.large-row-height {
+    height: 45%;
+}
+/* Taille des rows - END */
+
+/* Margin/Padding - START */
+.roll-dice-margin {
+    margin-bottom: 25px;
+}
+
+.hold-dice-margin {
+    margin-top: 25px;
+}
+/* Margin/Padding - END */
+
+/* Current-score design - START */ 
+.global-score-background {
+    background-color: rgb(226, 61, 61); 
+    max-width: fit-content; 
+    margin: auto; 
+    padding-left: 40px; 
+    padding-right: 40px;
+}
+/* Current-score design - END */ 
+
+/* background - START */
+.game-background {
+    background: linear-gradient(217deg, rgba(189, 170, 134, 0.8), rgba(255,0,0,0) 70.71%), 
+                linear-gradient(127deg, rgba(173, 136, 32, 0.8), rgba(251, 255, 0, 0) 70.71%), 
+                linear-gradient(336deg, rgba(56, 15, 8, 0.8), rgba(255, 0, 0, 0) 70.71%);
+}
+/* background - END*/
+
+
+
 
