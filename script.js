@@ -1,3 +1,30 @@
+/* design du point du joueur en cours de tour */
+const playerPointOne = document.getElementById("current-player-one-point");
+const playerPointTwo = document.getElementById("current-player-two-point");
+let ctxPoint;
+
+if (playerPointOne.getContext) {
+    ctxPoint = playerPointOne.getContext('2d');
+    ctxPoint.beginPath();
+    ctxPoint.fillStyle = 'rgb(226, 61, 61)';
+    ctxPoint.arc(30, 15, 8, 0, Math.PI * 2);
+    ctxPoint.fill();
+}
+else {
+    console.log('Votre navigateur ne peut pas lire l\'image.');
+}
+
+if (playerPointTwo.getContext) {
+    ctxPoint = playerPointTwo.getContext('2d');
+    ctxPoint.beginPath();
+    ctxPoint.fillStyle = 'rgb(226, 61, 61)';
+    ctxPoint.arc(20, 15, 8, 0, Math.PI * 2);
+    ctxPoint.fill();
+}
+else {
+    console.log('Votre navigateur ne peut pas lire l\'image.');
+}
+
 let roundPlayerOne = document.getElementById("round-player-one");
 let roundPlayerTwo = document.getElementById("round-player-two");
 const rollDiceButton = document.getElementById("roll-dice");
@@ -7,23 +34,27 @@ const getRandomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min) + min);
 }
 
+/* définition du tour */
+let playerTurn = 1;
+const playerOne = document.getElementById("player-one");
+const playerTwo = document.getElementById("player-two");
 
 /* modification de l'affichage selon le joueur */
 const currentPlayerTurn = (playerTurn) => {
     if(playerTurn === 1) {
         playerOne.style.fontFamily = "lato-light";
         playerTwo.style.fontFamily = "lato-thin";
+        playerPointOne.style.visibility = "visible";
+        playerPointTwo.style.visibility = "hidden";
     }
     else {
         playerOne.style.fontFamily = "lato-thin";
         playerTwo.style.fontFamily = "lato-light";
+        playerPointOne.style.visibility = "hidden";
+        playerPointTwo.style.visibility = "visible";
     }
 }
 
-/* définition du tour */
-let playerTurn = 1;
-const playerOne = document.getElementById("player-one");
-const playerTwo = document.getElementById("player-two");
 currentPlayerTurn(playerTurn);
 
 /* fonction du dé */
@@ -134,7 +165,7 @@ holdDiceButton.addEventListener('click', () => {
     else {
 
         /* rentre le score pour la première fois dans current */
-        if (globalPlayerTwo.textContent == 0 && roundPlayerTwo != 0) {
+        if (globalPlayerTwo.textContent == 0 && roundPlayerTwo.textContent != 0) {
             globalPlayerTwo.textContent = roundPlayerTwo.textContent;
             roundPlayerTwo.textContent = 0;
             playerTurn = 1;
@@ -185,48 +216,47 @@ newGameButton.addEventListener('click', () => {
 
 /* design du dé */
 const diceCanvas = document.getElementById('dice');
-let ctx;
+let ctxDice;
 
 if(diceCanvas.getContext) {
-    ctx = diceCanvas.getContext('2d');
-    ctx.beginPath();
-    ctx.fillStyle = 'white';
-    ctx.shadowOffsetX = -5;
-    ctx.shadowOffsetY = 6;
-    ctx.shadowBlur = 15;
-    ctx.shadowColor = 'rgb(219,219,219)';
-    ctx.fillRect(90, 90, 120, 120);
+    ctxDice = diceCanvas.getContext('2d');
+    ctxDice.beginPath();
+    ctxDice.fillStyle = 'white';
+    ctxDice.shadowOffsetX = -5;
+    ctxDice.shadowOffsetY = 6;
+    ctxDice.shadowBlur = 15;
+    ctxDice.shadowColor = 'rgb(219,219,219)';
+    ctxDice.fillRect(90, 90, 120, 120);
 
     /* deux points de gauche */
-    ctx.beginPath();
-    ctx.fillStyle ='rgb(226, 61, 61)';
-    ctx.arc(120, 120, 8, 0, Math.PI * 2);
-    ctx.fill();
+    ctxDice.beginPath();
+    ctxDice.fillStyle ='rgb(226, 61, 61)';
+    ctxDice.arc(120, 120, 8, 0, Math.PI * 2);
+    ctxDice.fill();
 
-    ctx.beginPath();
-    ctx.fillStyle = 'rgb(226, 61, 61)';
-    ctx.arc(180, 120, 8, 0, Math.PI * 2);
-    ctx.fill();
+    ctxDice.beginPath();
+    ctxDice.fillStyle = 'rgb(226, 61, 61)';
+    ctxDice.arc(180, 120, 8, 0, Math.PI * 2);
+    ctxDice.fill();
 
     /* deux points de droite */
-    ctx.beginPath();
-    ctx.fillStyle = 'rgb(226, 61, 61)';
-    ctx.arc(120, 180, 8, 0, Math.PI * 2);
-    ctx.fill();
+    ctxDice.beginPath();
+    ctxDice.fillStyle = 'rgb(226, 61, 61)';
+    ctxDice.arc(120, 180, 8, 0, Math.PI * 2);
+    ctxDice.fill();
 
-    ctx.beginPath();
-    ctx.fillStyle = 'rgb(226, 61, 61)';
-    ctx.arc(180, 180, 8, 0, Math.PI * 2);
-    ctx.fill();
+    ctxDice.beginPath();
+    ctxDice.fillStyle = 'rgb(226, 61, 61)';
+    ctxDice.arc(180, 180, 8, 0, Math.PI * 2);
+    ctxDice.fill();
 
     /* point du milieu */
-    ctx.beginPath();
-    ctx.fillStyle = 'rgb(226, 61, 61)';
-    ctx.arc(150, 150, 8, 0, Math.PI * 2);
-    ctx.fill();
+    ctxDice.beginPath();
+    ctxDice.fillStyle = 'rgb(226, 61, 61)';
+    ctxDice.arc(150, 150, 8, 0, Math.PI * 2);
+    ctxDice.fill();
 
 }
 else {
     console.log('Votre navigateur ne peut pas lire l\'image.');
 }
-
