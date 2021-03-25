@@ -182,3 +182,51 @@ newGameButton.addEventListener('click', () => {
     rollDiceButton.disabled = false;
     currentPlayerTurn(playerTurn);
 });
+
+/* design du dé */
+const diceCanvas = document.getElementById('dice');
+let ctx;
+
+if(diceCanvas.getContext) {
+    ctx = diceCanvas.getContext('2d');
+    ctx.beginPath();
+    ctx.fillStyle = 'white';
+    ctx.shadowOffsetX = -5;
+    ctx.shadowOffsetY = 6;
+    ctx.shadowBlur = 15;
+    ctx.shadowColor = 'rgb(219,219,219)';
+    ctx.fillRect(90, 90, 120, 120);
+
+    /* deux points de gauche */
+    ctx.beginPath();
+    ctx.fillStyle ='rgb(226, 61, 61)';
+    ctx.arc(120, 120, 8, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.fillStyle = 'rgb(226, 61, 61)';
+    ctx.arc(180, 120, 8, 0, Math.PI * 2);
+    ctx.fill();
+
+    /* deux points de droite */
+    ctx.beginPath();
+    ctx.fillStyle = 'rgb(226, 61, 61)';
+    ctx.arc(120, 180, 8, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.fillStyle = 'rgb(226, 61, 61)';
+    ctx.arc(180, 180, 8, 0, Math.PI * 2);
+    ctx.fill();
+
+    /* point du milieu */
+    ctx.beginPath();
+    ctx.fillStyle = 'rgb(226, 61, 61)';
+    ctx.arc(150, 150, 8, 0, Math.PI * 2);
+    ctx.fill();
+
+}
+else {
+    console.log('Votre navigateur ne peut pas lire l\'image.');
+}
+

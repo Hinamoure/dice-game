@@ -15,7 +15,7 @@
 <body class="game-background">
     <ion-app>
         <h1 class="ion-hide">dice game</h1>
-        <ion-grid class="ion-text-center" style="height: 100%; background-color: white; margin: 120px auto; padding: 0 120px; box-shadow: 0 4px 10px rgb(105, 85, 73); border-radius: 2px;" fixed="true">
+        <ion-grid class="ion-text-center" style="height: 100%; background-color: rgb(245, 245, 245); margin: 120px auto; padding: 0 120px; box-shadow: 0 4px 10px rgb(105, 85, 73); border-radius: 2px;" fixed="true">
             <ion-row class="small-row-height">
                 <ion-col class="ion-align-self-center" size="12">
                     <ion-button class="button-font-size" fill="clear" color="dark" expand="full" size="large">
@@ -26,7 +26,7 @@
             </ion-row>
             <ion-row class="large-row-height">
                 <ion-col size="4">
-                    <h2 class="ion-text-uppercase" style="font-size: 50px;" id="player-one">
+                    <h2 class="ion-text-uppercase" style="font-size: 45px;" id="player-one">
                         Player 1
                     </h2>
                     <p>
@@ -34,10 +34,10 @@
                     </p>
                 </ion-col>
                 <ion-col size="4">
-                    <div id="dice"></div>
+                    <canvas id="dice" height="300" width="300">si vous ne voyez pas d'image ici, c'est que votre navigateur ne peut pas la lire.</canvas>
                 </ion-col>
                 <ion-col size="4">
-                    <h2 class="ion-text-uppercase" style="font-size: 50px;" id="player-two">
+                    <h2 class="ion-text-uppercase" style="font-size: 45px;" id="player-two">
                         Player 2
                     </h2>
                     <p>
