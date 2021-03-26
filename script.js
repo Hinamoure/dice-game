@@ -60,10 +60,11 @@ currentPlayerTurn(playerTurn);
 /* fonction du dé */
 rollDiceButton.addEventListener('click', () => {
 
+    let randomNumber = getRandomNumber(1, 7);
+    pointDiceAppear(randomNumber);
     /* fonction d'affichage du dé pour le joueur 1 */ 
     if ( playerTurn === 1) {
         /* récupère un nombre au hasard */ 
-        let randomNumber = getRandomNumber(1, 7);
         if (randomNumber !== 1) {
 
             /* affiche le score du dé actuel pour la première fois */
@@ -95,8 +96,7 @@ rollDiceButton.addEventListener('click', () => {
 
     /* fonction d'affichage du dé pour le joueur 2 */
     else {
-        /* récupère un nombre au hasard */
-        let randomNumber = getRandomNumber(1, 7);
+        /* fonction d'affichage du dé pour le joueur 2 */
         if (randomNumber !== 1) {
 
             /* affiche le total des lancés de dé pour la première fois */
@@ -141,6 +141,7 @@ holdDiceButton.addEventListener('click', () => {
             roundPlayerOne.textContent = 0;
             playerTurn = 2;
             currentPlayerTurn(playerTurn);
+            canvasCleared(ctxDice);
             return;
         }
 
@@ -159,6 +160,7 @@ holdDiceButton.addEventListener('click', () => {
             playerTurn = 2;
             currentPlayerTurn(playerTurn);
             winGame();
+            canvasCleared(ctxDice);
         }
     }
 
@@ -170,6 +172,7 @@ holdDiceButton.addEventListener('click', () => {
             roundPlayerTwo.textContent = 0;
             playerTurn = 1;
             currentPlayerTurn(playerTurn);
+            canvasCleared(ctxDice);
             return;
         }
 
@@ -188,6 +191,7 @@ holdDiceButton.addEventListener('click', () => {
             playerTurn = 1;
             currentPlayerTurn(playerTurn);
             winGame();
+            canvasCleared(ctxDice);
         }
     }
 })
@@ -214,8 +218,9 @@ newGameButton.addEventListener('click', () => {
     currentPlayerTurn(playerTurn);
 });
 
-/* design du dé */
+/* background du dé */
 const diceCanvas = document.getElementById('dice');
+
 let ctxDice;
 
 if(diceCanvas.getContext) {
@@ -227,10 +232,34 @@ if(diceCanvas.getContext) {
     ctxDice.shadowBlur = 15;
     ctxDice.shadowColor = 'rgb(219,219,219)';
     ctxDice.fillRect(90, 90, 120, 120);
+}
+else {
+    console.log('Votre navigateur ne peut pas lire l\'image.');
+}
 
-    /* deux points de gauche */
+/* fonctions des points du dé */
+const diceOnePoint = (ctxDice) => {
     ctxDice.beginPath();
-    ctxDice.fillStyle ='rgb(226, 61, 61)';
+    ctxDice.fillStyle = 'rgb(226, 61, 61)';
+    ctxDice.arc(150, 150, 8, 0, Math.PI * 2);
+    ctxDice.fill();
+}
+
+const diceTwoPoint = (ctxDice) => {
+    ctxDice.beginPath();
+    ctxDice.fillStyle = 'rgb(226, 61, 61)';
+    ctxDice.arc(120, 180, 8, 0, Math.PI * 2);
+    ctxDice.fill();
+
+    ctxDice.beginPath();
+    ctxDice.fillStyle = 'rgb(226, 61, 61)';
+    ctxDice.arc(180, 120, 8, 0, Math.PI * 2);
+    ctxDice.fill();
+}
+
+const diceFourPoint = (ctxDice) => {
+    ctxDice.beginPath();
+    ctxDice.fillStyle = 'rgb(226, 61, 61)';
     ctxDice.arc(120, 120, 8, 0, Math.PI * 2);
     ctxDice.fill();
 
@@ -239,7 +268,6 @@ if(diceCanvas.getContext) {
     ctxDice.arc(180, 120, 8, 0, Math.PI * 2);
     ctxDice.fill();
 
-    /* deux points de droite */
     ctxDice.beginPath();
     ctxDice.fillStyle = 'rgb(226, 61, 61)';
     ctxDice.arc(120, 180, 8, 0, Math.PI * 2);
@@ -249,14 +277,49 @@ if(diceCanvas.getContext) {
     ctxDice.fillStyle = 'rgb(226, 61, 61)';
     ctxDice.arc(180, 180, 8, 0, Math.PI * 2);
     ctxDice.fill();
-
-    /* point du milieu */
-    ctxDice.beginPath();
-    ctxDice.fillStyle = 'rgb(226, 61, 61)';
-    ctxDice.arc(150, 150, 8, 0, Math.PI * 2);
-    ctxDice.fill();
-
 }
-else {
-    console.log('Votre navigateur ne peut pas lire l\'image.');
+/* fonction qui efface les points du dé */
+const canvasCleared = (ctxDice) => {
+    ctxDice.clearRect(90, 90, 120, 120);
+}
+
+/* fonction d'affichage des points sur le dé selon le chiffre tiré */
+const pointDiceAppear = (randomNumber) => {
+    canvasCleared(ctxDice);
+    switch(randomNumber) {
+        case 1:
+            /* point du milieu */
+            diceOnePoint(ctxDice);
+            break;
+        case 2:
+            diceTwoPoint(ctxDice);
+            break;
+        case 3:
+            diceOnePoint(ctxDice);
+            diceTwoPoint(ctxDice);
+            break;
+        case 4:
+            diceFourPoint(ctxDice);
+            break;
+        case 5:
+            diceOnePoint(ctxDice);
+            diceFourPoint(ctxDice);
+            break;
+        case 6:
+            diceFourPoint(ctxDice);
+
+            /* deux points du milieu */
+            ctxDice.beginPath();
+            ctxDice.fillStyle = 'rgb(226, 61, 61)';
+            ctxDice.arc(120, 150, 8, 0, Math.PI * 2);
+            ctxDice.fill();
+
+            ctxDice.beginPath();
+            ctxDice.fillStyle = 'rgb(226, 61, 61)';
+            ctxDice.arc(180, 150, 8, 0, Math.PI * 2);
+            ctxDice.fill();
+            break;
+        default:
+            console.error('canvas doesn/t worked');
+    }
 }
