@@ -18,12 +18,12 @@
     --ion-font-family: 'lato-light';
 }
 
-.round-score {
+.global-score {
     font-family: 'lato-thin';
     font-size: 100px;
 }
 
-.global-score {
+.round-score {
     font-size: 35px;
 }
 
@@ -57,7 +57,7 @@
 /* Margin/Padding - END */
 
 /* Current-score design - START */ 
-.global-score-background {
+.round-score-background {
     background-color: rgb(226, 61, 61); 
     max-width: fit-content; 
     margin: auto; 
@@ -73,7 +73,5 @@
                 linear-gradient(336deg, rgba(56, 15, 8, 0.8), rgba(255, 0, 0, 0) 70.71%);
 }
 /* background - END*/
-
-
 
 

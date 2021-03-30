@@ -15,6 +15,7 @@
 <body class="game-background">
     <ion-app>
         <h1 class="ion-hide">dice game</h1>
+
         <ion-grid class="ion-text-center" style="height: 100%; background-color: rgb(245, 245, 245); margin: 120px auto; padding: 0 120px; box-shadow: 0 4px 10px rgb(105, 85, 73); border-radius: 2px;" fixed="true">
             <ion-row class="small-row-height">
                 <ion-col class="ion-align-self-center" size="12">
@@ -24,58 +25,66 @@
                     </ion-button>
                 </ion-col>
             </ion-row>
+
             <ion-row class="large-row-height">
+
                 <ion-col size="4">
-                    <h2 class="ion-text-uppercase" style="font-size: 45px;" id="player-one">
+                    <h2 class="ion-text-uppercase" style="font-size: 45px;" id="first-player">
                         Player 1
-                    <canvas id="current-player-one-point" height="30px" width="50px"></canvas></h2>
+                        <canvas id="first-player-point" height="30px" width="50px"></canvas>
+                    </h2>
                     <p>
-                        <ion-text color="danger" class="round-score" id="round-player-one">0</ion-text>
+                        <ion-text color="danger" class="global-score" id="first-player-global">0</ion-text>
                     </p>
                 </ion-col>
+
                 <ion-col size="4">
                     <canvas id="dice" height="300" width="300">si vous ne voyez pas d'image ici, c'est que votre navigateur ne peut pas la lire.</canvas>
                 </ion-col>
+
                 <ion-col size="4">
-                    <h2 class="ion-text-uppercase" style="font-size: 45px;" id="player-two">
-                    <canvas id="current-player-two-point" height="30px" width="50px"></canvas>
-                    Player 2
+                    <h2 class="ion-text-uppercase" style="font-size: 45px;" id="second-player">
+                        <canvas id="second-player-point" height="30px" width="50px"></canvas>
+                        Player 2
                     </h2>
                     <p>
-                        <ion-text color="danger" class="round-score" id="round-player-two">0</ion-text>
+                        <ion-text color="danger" class="global-score" id="second-player-global">0</ion-text>
                     </p>
                 </ion-col>
+
             </ion-row>
             <ion-row class="medium-row-height">
                 <ion-col size="4">
-                    <div class="ion-padding-vertical global-score-background">
+                    <div class="ion-padding-vertical round-score-background">
                         <p class="ion-no-margin ion-margin-bottom">
                             <ion-text class="ion-text-uppercase">current</ion-text>
                         </p>
-                        <ion-text color="light" class="global-score">
-                            <p class="ion-no-margin" id="global-player-one">0</p>
+                        <ion-text color="light" class="round-score">
+                            <p class="ion-no-margin" id="first-player-round">0</p>
                         </ion-text>
                     </div>
                 </ion-col>
                 <ion-col size="4" class="aion-align-self-end">
                     <div>
-                        <ion-button class="button-font-size roll-dice-margin" fill="clear" color="dark" expand="full" size="medium" id="roll-dice">
+                        <ion-button class="button-font-size roll-dice-margin" fill="clear" color="dark" expand="full"
+                            size="medium" id="roll-dice">
                             <ion-icon slot="start" name="sync-outline" color="danger"></ion-icon>
                             <ion-text class="ion-text-uppercase">roll dice</ion-text>
                         </ion-button>
-                        <ion-button class="button-font-size hold-dice-margin" fill="clear" color="dark" expand="full" size="medium" id="hold-dice">
+                        <ion-button class="button-font-size hold-dice-margin" fill="clear" color="dark" expand="full"
+                            size="medium" id="hold-dice">
                             <ion-icon slot="start" name="download-outline" color="danger"></ion-icon>
                             <ion-text class="ion-text-uppercase">hold</ion-text>
                         </ion-button>
                     </div>
                 </ion-col>
                 <ion-col size="4">
-                    <div class="ion-padding-vertical global-score-background">
+                    <div class="ion-padding-vertical round-score-background">
                         <p class="ion-no-margin ion-margin-bottom">
                             <ion-text class="ion-text-uppercase">current</ion-text>
                         </p>
-                        <ion-text color="light" class="global-score">
-                            <p class="ion-no-margin" id="global-player-two">0</p>
+                        <ion-text color="light" class="round-score">
+                            <p class="ion-no-margin" id="second-player-round">0</p>
                         </ion-text>
                     </div>
                 </ion-col>
@@ -83,6 +92,7 @@
         </ion-grid>
     </ion-app>
 
+    <!-- <script src='./script2.js'></script> -->
     <script src='./script.js'></script>
 </body>
 
