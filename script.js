@@ -1,10 +1,5 @@
-/**
- * TODO :
- * faire en sorte que lorsque le joueur atteint le score maximal, 
- * la partie se gagne automatiquement sans nécéssité d'appuyer sur le bouton hold
- */
-/**
- * TODO
+/*
+* TODO
  * Faire une méthode dans player et party pour réinitialiser turn, globalScore et roundScore
  */
 class Player {
@@ -110,6 +105,9 @@ rollDiceButton.addEventListener('click', () => {
     /** insère le score du round du joueur */
     insertRoundScoreData(randomNumber, currentPlayer);
     playerCanSaveRound();
+    if (randomNumber + currentPlayer.globalScore >= party.winScore) {
+        winGame(currentPlayer);
+    }
     
 });
 
@@ -135,9 +133,11 @@ holdDiceButton.addEventListener('click', () => {
     secondPlayerRound.textContent = 0;
 
     changePlayer(currentPlayer);
-    canvasCleared(ctxDice);
     playerCanSaveRound();
-    winGame();
+    if(firstPlayerGlobal.textContent >= party.winScore || secondPlayerGlobal.textContent >= party.winScore) {
+    winGame(currentPlayer);
+    }
+    canvasCleared(ctxDice);
 
 });
 
@@ -148,31 +148,31 @@ const playerCanSaveRound = () => {
 };
 
 /* désactive les boutons en cas de victoire */
-const winGame = () => {
-    if (firstPlayerGlobal.textContent >= party.winScore || secondPlayerGlobal.textContent >= party.winScore) {
+const winGame = (currentPlayer) => {
         rollDiceButton.disabled = true;
         holdDiceButton.disabled = true;
-        firstPlayer.globalScore = 0;
-        secondPlayer.globalScore = 0;
-        party.turn = 1;
-        
         firstPlayerName.style.fontFamily = "lato-thin";
         firstPlayerPoint.style.visibility = "hidden";
         secondPlayerName.style.fontFamily = "lato-thin";
         secondPlayerPoint.style.visibility = "hidden";
-    }
-};
+        setTimeout(alert, 500, `${currentPlayer.name} a gagné`);
+    };
 
-/** Lance une nouvelle partie */
+/** Lance une nouvelle partie, remet tous les scores à zéro */
 const newGameButton = document.getElementById('new-game');
 newGameButton.addEventListener('click', () => {
-    console.log(firstPlayer);
     firstPlayerGlobal.textContent = 0;
     secondPlayerGlobal.textContent = 0;
     firstPlayerRound.textContent = 0;
     secondPlayerRound.textContent = 0;
     holdDiceButton.disabled = false;
     rollDiceButton.disabled = false;
+    firstPlayer.globalScore = 0;
+    secondPlayer.globalScore = 0;
+    firstPlayer.turn = 0;
+    secondPlayer.turn = 0;
+    party.turn = 1;
+    canvasCleared(ctxDice);
 });
 
 /** DESIGN DU DÉ ----------------*/
