@@ -1,21 +1,19 @@
 class Player {
     constructor(name) {
         this.name = name;
-        this.roundScore = 0;
-        this.globalScore = 0;
-        this.turn = 0;
+        this.playerDataReboot();
     }
     playerDataReboot = () => {
         this.roundScore = 0;
         this.globalScore = 0;
-        this. turn = 0;
+        this.turn = 0;
     }
 }
 
 class Party {
     constructor() {
         this.turn = 1;
-        this.winScore = 20;
+        this.winScore = 10;
     }
     partyDataReboot = () => {
         this.turn = 1;
@@ -25,9 +23,6 @@ class Party {
 const party = new Party();
 const firstPlayer = new Player('Player1');
 const secondPlayer = new Player('Player2');
-
-const firstPlayerName = document.getElementById("first-player");
-const secondPlayerName = document.getElementById("second-player");
 
 /* design du point du joueur en cours de tour */
 const firstPlayerPoint = document.getElementById("first-player-point");
@@ -49,15 +44,13 @@ else {
 }
 
 /* fonction de modification du style selon le joueur */
-const currentPlayerStyle = (currentPlayer) => {
-    const playerActive = !currentPlayer || firstPlayer.turn < party.turn;
+const firstPlayerName = document.getElementById("first-player");
+const secondPlayerName = document.getElementById("second-player");
 
-    firstPlayerName.style.fontFamily = playerActive ? "lato-light" : "lato-thin";
-    firstPlayerPoint.style.visibility = playerActive ? "visible" : "hidden";
-    secondPlayerName.style.fontFamily = !playerActive ? "lato-light" : "lato-thin";
-    secondPlayerPoint.style.visibility = !playerActive ? "visible" : "hidden";
+const currentPlayerStyle = (currentPlayer) => {
+    firstPlayerName.classList.toggle("current");
+    secondPlayerName.classList.toggle("current");
 };
-currentPlayerStyle();
 
 /* fonction pour tirer un nombre au hasard */
 const getRandomNumber = (min, max) => {
@@ -155,10 +148,8 @@ const playerCanSaveRound = () => {
 const winGame = (currentPlayer) => {
         rollDiceButton.disabled = true;
         holdDiceButton.disabled = true;
-        firstPlayerName.style.fontFamily = "lato-thin";
-        firstPlayerPoint.style.visibility = "hidden";
-        secondPlayerName.style.fontFamily = "lato-thin";
-        secondPlayerPoint.style.visibility = "hidden";
+        firstPlayerName.classList.remove('current');
+        secondPlayerName.classList.remove('current');
         setTimeout(alert, 500, `${currentPlayer.name} a gagné`);
     };
 
@@ -175,7 +166,9 @@ newGameButton.addEventListener('click', () => {
     secondPlayer.playerDataReboot();
     party.partyDataReboot();
     canvasCleared(ctxDice);
-    console.log(firstPlayer)
+    firstPlayerName.classList.add('current');
+    secondPlayerName.classList.remove('current');
+
 });
 
 /** DESIGN DU DÉ ----------------*/

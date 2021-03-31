@@ -32,6 +32,27 @@
 }
 /* Font/Font-size - END */
 
+/* Design du joueur actif et non actif - START */
+
+.player {
+    font-size: 45px;
+    font-family: 'lato-thin';
+}
+
+.current {
+    font-family: 'lato-regular';
+}
+
+.player canvas {
+    opacity: 0;
+}
+
+.player.current canvas {
+    opacity: 1;
+}
+
+/* Design du joueur actif - END */
+
 /* Taille des rows - START */
 .small-row-height {
     height: 20%;
