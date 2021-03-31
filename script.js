@@ -1,7 +1,3 @@
-/*
-* TODO
- * Faire une méthode dans player et party pour réinitialiser turn, globalScore et roundScore
- */
 class Player {
     constructor(name) {
         this.name = name;
@@ -9,12 +5,20 @@ class Player {
         this.globalScore = 0;
         this.turn = 0;
     }
+    playerDataReboot = () => {
+        this.roundScore = 0;
+        this.globalScore = 0;
+        this. turn = 0;
+    }
 }
 
 class Party {
     constructor() {
         this.turn = 1;
         this.winScore = 20;
+    }
+    partyDataReboot = () => {
+        this.turn = 1;
     }
 }
 
@@ -167,12 +171,11 @@ newGameButton.addEventListener('click', () => {
     secondPlayerRound.textContent = 0;
     holdDiceButton.disabled = false;
     rollDiceButton.disabled = false;
-    firstPlayer.globalScore = 0;
-    secondPlayer.globalScore = 0;
-    firstPlayer.turn = 0;
-    secondPlayer.turn = 0;
-    party.turn = 1;
+    firstPlayer.playerDataReboot();
+    secondPlayer.playerDataReboot();
+    party.partyDataReboot();
     canvasCleared(ctxDice);
+    console.log(firstPlayer)
 });
 
 /** DESIGN DU DÉ ----------------*/
