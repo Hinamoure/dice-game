@@ -13,7 +13,7 @@ class Player {
 class Party {
     constructor() {
         this.turn = 1;
-        this.winScore = 10;
+        this.winScore = 100;
     }
     partyDataReboot = () => {
         this.turn = 1;
