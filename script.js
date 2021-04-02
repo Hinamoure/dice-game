@@ -13,7 +13,7 @@ class Player {
 class Party {
     constructor() {
         this.turn = 1;
-        this.winScore = 100;
+        this.winScore = 10;
     }
     partyDataReboot = () => {
         this.turn = 1;
@@ -102,7 +102,7 @@ rollDiceButton.addEventListener('click', () => {
     /** insère le score du round du joueur */
     insertRoundScoreData(randomNumber, currentPlayer);
     playerCanSaveRound();
-    if (randomNumber + currentPlayer.globalScore >= party.winScore) {
+    if (currentPlayer.roundScore + currentPlayer.globalScore >= party.winScore) {
         winGame(currentPlayer);
     }
     
