@@ -1,16 +1,29 @@
+# Dice-game
+
+https://lychee-crumble-82743.herokuapp.com/
+
+*Le projet n'est pas encore responsive*
+
+
+## Description
+
 Ceci est un jeu de dés qui peut se jouer à deux joueurs, sur un même ordinateur.
 
 Le projet utilise Javascript et Ionic.
 
-Règles du jeu :
 
-Le joueur lance le dé et choisi ensuite s'il veut garder le score en appuyant sur "hold" ou s'il veut l'augmenter en réappuyant sur "roll".
-Si le joueur appuie sur "hold", le score du dé est conservé et s'ajoute aux anciens score conservés. Son tour se termine et l'autre joueur peut jouer.
-Si le joueur appuis sur"roll", alors le score du dé augmente, sauf s'il fait 1. Dans ce dernier cas, le joueur ne peut pas mettre le socre du dé de côté et son tour se termine.
-Le premier joueur dont le score conservé atteint 50 a gagné.
+## Règles du jeu :
+
+Jeu de dé où le premier joueur dont le score atteint 50 a gagné.
+
+Cliquez sur "Roll Dice" pour lancer le dé une première fois.
+
+Cliquez à nouveau sur "Roll Dice" pour tenter d'augmenter votre score ou cliquez sur "Hold" pour l'enregistrer et passer la main à l'autre joueur.
+
+Attention toutefois, si vous faites 1 vous perdez votre score courant et votre tour se termine.
 
 
-Norme de nomage des commits :
+## Norme de nomage des commits :
 
 - DESIGN : travail du visuel
 - FT  : nouvelle fonctionnalité 
@@ -19,7 +32,7 @@ Norme de nomage des commits :
 
 
 Les commits seront en français.
-ils  commencerons par les abréviations précédemments sitées suivies d'un -
-ils doivent précisé la ou les techno utilisées, suivie(s) de :
+Ils  commenceront par les abréviations précédemments citées suivies d'un "-".
+Ils doivent préciser la ou les techno utilisées, suivie(s) d'un ":".
 
-exemple : DESIGN - Ionic: design du bouton de lancement de dés
+exemple : `DESIGN - Ionic: design du bouton de lancement de dés`
