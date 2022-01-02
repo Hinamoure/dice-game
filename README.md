@@ -1,6 +1,6 @@
 # Dice-game
 
-https://lychee-crumble-82743.herokuapp.com/
+https://jeudedes.herokuapp.com/
 
 *Le projet n'est pas encore responsive*
 
